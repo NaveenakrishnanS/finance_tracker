@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finance Tracker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav id="app-nav" class="hidden">
+    <ul>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#transactions">Transactions</a></li>
+      <li><a href="#budgets">Budgets</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#trend">Trend</a></li>
+      <li><a href="#profile">Profile</a></li>
+    </ul>
+    <ul>
+      <li><button id="logout-btn">Log Out</button></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section id="view-login" class="view">
+      <article>
+        <h2>Sign In</h2>
+        <form id="login-form">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" required>
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" required>
+          <div id="login-error" class="error-msg" hidden></div>
+          <button type="submit" id="login-btn">Sign In</button>
+        </form>
+        <p>No account? <a href="#register">Register</a></p>
+      </article>
+    </section>
+
+    <section id="view-register" class="view">
+      <article>
+        <h2>Create Account</h2>
+        <form id="register-form">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" name="email" required>
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" name="password" required>
+          <label for="reg-name">Display Name (optional)</label>
+          <input type="text" id="reg-name" name="displayName">
+          <div id="reg-error" class="error-msg" hidden></div>
+          <button type="submit" id="reg-btn">Create Account</button>
+        </form>
+        <p>Already registered? <a href="#login">Sign In</a></p>
+      </article>
+    </section>
+    <section id="view-dashboard" class="view">
+      <h2>Dashboard</h2>
+      <section>
+        <form id="summary-filter-form">
+          <label for="summary-start">From</label>
+          <input type="date" id="summary-start">
+          <label for="summary-end">To</label>
+          <input type="date" id="summary-end">
+          <button type="submit">Apply</button>
+        </form>
+        <div id="summary-cards"><!-- Populated by dashboard.js --></div>
+        <div id="category-breakdown"><!-- Populated by dashboard.js --></div>
+      </section>
+      <section id="over-limit-widget">
+        <h3>Over-Limit Budgets</h3>
+        <div id="over-limit-list"><!-- Populated by dashboard.js --></div>
+      </section>
+    </section>
+    <section id="view-transactions" class="view">
+      <h2>Transactions</h2>
+      <section>
+        <details id="tx-form-details">
+          <summary id="tx-form-toggle">Add Transaction</summary>
+          <form id="tx-form">
+            <input type="hidden" id="tx-id">
+            <label for="tx-amount">Amount</label>
+            <input type="number" id="tx-amount" min="0.01" step="0.01" required>
+            <label for="tx-type">Type</label>
+            <select id="tx-type">
+              <option value="INCOME">INCOME</option>
+              <option value="EXPENSE">EXPENSE</option>
+            </select>
+            <label for="tx-category">Category</label>
+            <select id="tx-category"></select>
+            <label for="tx-date">Date</label>
+            <input type="date" id="tx-date" required>
+            <label for="tx-desc">Description (optional)</label>
+            <textarea id="tx-desc" rows="2"></textarea>
+            <div id="tx-error" class="error-msg" hidden></div>
+            <button type="submit" id="tx-btn">Add Transaction</button>
+            <button type="button" id="tx-cancel" hidden>Cancel</button>
+          </form>
+        </details>
+      </section>
+      <section>
+        <form id="tx-filter-form">
+          <label for="filter-type">Type</label>
+          <select id="filter-type">
+            <option value="">All Types</option>
+            <option value="INCOME">INCOME</option>
+            <option value="EXPENSE">EXPENSE</option>
+          </select>
+          <label for="filter-category">Category</label>
+          <select id="filter-category">
+            <option value="">All Categories</option>
+          </select>
+          <label for="filter-start">From</label>
+          <input type="date" id="filter-start">
+          <label for="filter-end">To</label>
+          <input type="date" id="filter-end">
+          <button type="submit">Apply</button>
+          <button type="reset" id="filter-reset">Clear</button>
+        </form>
+        <div id="tx-list"><!-- Populated by transactions.js --></div>
+        <div id="tx-pagination">
+          <button id="tx-prev">Previous</button>
+          <span id="tx-page-info"></span>
+          <button id="tx-next">Next</button>
+        </div>
+      </section>
+    </section>
+    <section id="view-budgets" class="view">
+      <h2>Budgets</h2>
+      <section>
+        <form id="budget-form">
+          <input type="hidden" id="budget-id">
+          <label for="budget-category">Category</label>
+          <select id="budget-category" required></select>
+          <label for="budget-limit">Limit Amount</label>
+          <input type="number" id="budget-limit" min="0.01" step="0.01" required>
+          <label for="budget-month">Month</label>
+          <input type="number" id="budget-month" min="1" max="12" required>
+          <label for="budget-year">Year</label>
+          <input type="number" id="budget-year" min="2000" max="2100" required>
+          <div id="budget-error" class="error-msg" hidden></div>
+          <button type="submit" id="budget-btn">Add Budget</button>
+          <button type="button" id="budget-cancel" hidden>Cancel</button>
+        </form>
+      </section>
+      <section>
+        <div id="budget-list"><!-- Populated by budgets.js --></div>
+      </section>
+    </section>
+    <section id="view-goals" class="view">
+      <h2>Goals</h2>
+      <section>
+        <form id="goal-form">
+          <input type="hidden" id="goal-id">
+          <label for="goal-name">Name</label>
+          <input type="text" id="goal-name" required>
+          <label for="goal-target">Target Amount</label>
+          <input type="number" id="goal-target" min="0.01" step="0.01" required>
+          <label for="goal-date">Target Date</label>
+          <input type="date" id="goal-date" required>
+          <div id="goal-error" class="error-msg" hidden></div>
+          <button type="submit" id="goal-btn">Add Goal</button>
+          <button type="button" id="goal-cancel" hidden>Cancel</button>
+        </form>
+      </section>
+      <section>
+        <div id="goal-list"><!-- Populated by goals.js --></div>
+      </section>
+    </section>
+    <section id="view-categories" class="view">
+      <h2>Categories</h2>
+      <section>
+        <form id="category-form">
+          <label for="cat-name">Category Name</label>
+          <input type="text" id="cat-name" required>
+          <div id="cat-error" class="error-msg" hidden></div>
+          <button type="submit" id="cat-btn">Add Category</button>
+        </form>
+      </section>
+      <section>
+        <div id="cat-list"><!-- Populated by categories.js --></div>
+      </section>
+    </section>
+    <section id="view-trend" class="view">
+      <h2>Monthly Trend</h2>
+      <section>
+        <form id="trend-filter-form">
+          <label for="trend-start">From</label>
+          <input type="date" id="trend-start">
+          <label for="trend-end">To</label>
+          <input type="date" id="trend-end">
+          <button type="submit">Apply</button>
+        </form>
+        <div id="trend-error" class="error-msg" hidden></div>
+        <canvas id="trendChart" height="120"></canvas>
+        <div id="trend-table"><!-- Populated by trend.js --></div>
+      </section>
+    </section>
+    <section id="view-profile" class="view">
+      <h2>My Account</h2>
+      <section>
+        <div id="profile-info"><!-- Populated by profile.js --></div>
+      </section>
+      <section>
+        <h3>Update Display Name</h3>
+        <form id="name-form">
+          <label for="display-name">Display Name</label>
+          <input type="text" id="display-name">
+          <div id="name-msg" hidden></div>
+          <button type="submit" id="name-btn">Update</button>
+        </form>
+      </section>
+      <section>
+        <h3>Change Password</h3>
+        <form id="password-form">
+          <label for="current-password">Current Password</label>
+          <input type="password" id="current-password" required>
+          <label for="new-password">New Password</label>
+          <input type="password" id="new-password" required>
+          <div id="password-msg" hidden></div>
+          <button type="submit" id="password-btn">Change Password</button>
+        </form>
+      </section>
+      <section>
+        <h3>Delete Account</h3>
+        <p>This action is permanent and cannot be undone.</p>
+        <button id="delete-account-btn" class="secondary">Delete My Account</button>
+        <div id="delete-msg" hidden></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/router.js"></script>
+</body>
+</html>

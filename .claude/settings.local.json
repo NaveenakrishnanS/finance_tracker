@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:/Users/ClareBritnyM/Desktop/test_env/finance-tracker/src/main/resources/static/css\" && mkdir -p \"C:/Users/ClareBritnyM/Desktop/test_env/finance-tracker/src/main/resources/static/js\" && echo \"Directories created\")",
+      "Bash(BASE=\"C:/Users/ClareBritnyM/Desktop/test_env/finance-tracker/src/main/resources/static\" echo \"=== Directory tree ===\" find \"$BASE\" -type f)",
+      "Bash(BASE=\"C:/Users/ClareBritnyM/Desktop/test_env/finance-tracker/src/main/resources/static\")",
+      "Read(//c/Users/ClareBritnyM/Desktop/test_env/**)",
+      "Read(//c/Users/ClareBritnyM/Desktop/test_env/$BASE/**)",
+      "Bash(find C:/Users/ClareBritnyM/Desktop/test_env/finance-tracker/src/main/java/com/financetracker/dto/ -name \"*.java\" | xargs grep -rL \"@Schema\" 2>/dev/null)"
+    ]
+  }
+}

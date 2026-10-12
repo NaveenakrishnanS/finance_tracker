@@ -1,0 +1,66 @@
+/* Finance Tracker — css/styles.css
+   Project-specific overrides on top of Pico.css (loaded via CDN).
+   Inline styles in HTML/JS are prohibited except for JavaScript-driven dynamic state. */
+
+/* ─── View Visibility ────────────────────────────────────────────────────────── */
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+/* ─── Navigation Bar ─────────────────────────────────────────────────────────── */
+
+#app-nav.hidden {
+  display: none;
+}
+
+#app-nav ul {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ─── Error and Success Messages ─────────────────────────────────────────────── */
+
+.error-msg {
+  color: var(--pico-color-red-500, #e53e3e);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.success-msg {
+  color: var(--pico-color-green-500, #38a169);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ─── Over-Limit Budget Rows ─────────────────────────────────────────────────── */
+
+tr.over-limit td {
+  color: var(--pico-color-red-500, #e53e3e);
+}
+
+tr.over-limit td:last-child {
+  color: inherit;
+}
+
+.over-limit-badge {
+  background: var(--pico-color-red-500, #e53e3e);
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* ─── Achieved Goal Badge ────────────────────────────────────────────────────── */
+
+.achieved-badge {
+  background: var(--pico-color-green-500, #38a169);
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}

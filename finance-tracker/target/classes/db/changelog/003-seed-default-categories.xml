@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="003-seed-default-categories" author="finance-tracker">
+        <insert tableName="categories">
+            <column name="name" value="Food"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Transport"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Utilities"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Salary"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Entertainment"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Healthcare"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Housing"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Education"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+        <insert tableName="categories">
+            <column name="name" value="Other"/>
+            <column name="is_system_default" valueBoolean="true"/>
+            <column name="user_id" value="NULL"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

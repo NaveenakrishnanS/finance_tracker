@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: com.financetracker.architecture.ArchitectureTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.784 s <<< FAILURE! -- in com.financetracker.architecture.ArchitectureTest
+com.financetracker.architecture.ArchitectureTest.servicesMustResideInServicePackage -- Time elapsed: 0.012 s <<< FAILURE!
+java.lang.AssertionError: 
+Architecture Violation [Priority: MEDIUM] - Rule 'classes that are annotated with @Service should reside in a package '..service..'' was violated (2 times):
+Class <com.financetracker.security.JwtService> does not reside in a package '..service..' in (JwtService.java:0)
+Class <com.financetracker.security.UserDetailsServiceImpl> does not reside in a package '..service..' in (UserDetailsServiceImpl.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.financetracker.architecture.ArchitectureTest.servicesMustResideInServicePackage(ArchitectureTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

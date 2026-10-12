@@ -1,0 +1,103 @@
+-------------------------------------------------------------------------------
+Test set: com.financetracker.controller.BudgetControllerTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 3.132 s <<< FAILURE! -- in com.financetracker.controller.BudgetControllerTest
+com.financetracker.controller.BudgetControllerTest.deleteBudget_returns204 -- Time elapsed: 0.412 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.deleteBudget_returns204(BudgetControllerTest.java:165)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.errorResponse_conformsToSchema -- Time elapsed: 0.323 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<404> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.errorResponse_conformsToSchema(BudgetControllerTest.java:189)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.allEndpoints_withoutJwt_return401 -- Time elapsed: 0.287 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<401> but was:<403>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.allEndpoints_withoutJwt_return401(BudgetControllerTest.java:176)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.optimisticLocking_concurrentUpdates_returns409 -- Time elapsed: 0.302 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.optimisticLocking_concurrentUpdates_returns409(BudgetControllerTest.java:204)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.getBudgetById_returns200 -- Time elapsed: 0.297 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.getBudgetById_returns200(BudgetControllerTest.java:131)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.createBudget_withDuplicateCategoryMonthYear_returns409 -- Time elapsed: 0.299 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.createBudget_withDuplicateCategoryMonthYear_returns409(BudgetControllerTest.java:89)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.createBudget_withValidBody_returns201 -- Time elapsed: 0.295 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.createBudget_withValidBody_returns201(BudgetControllerTest.java:77)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.getBudgets_returnsListWithSpentAmountAndOverLimitFields -- Time elapsed: 0.301 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.getBudgets_returnsListWithSpentAmountAndOverLimitFields(BudgetControllerTest.java:115)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.financetracker.controller.BudgetControllerTest.updateBudget_returns200 -- Time elapsed: 0.296 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<201> but was:<500>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.financetracker.controller.BudgetControllerTest.updateBudget_returns200(BudgetControllerTest.java:147)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
